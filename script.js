@@ -3,8 +3,21 @@
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 let highScore = 0;
+
+const btnAcknowledge = document.querySelector('.btn--acknowledge');
 const displayMessage = message =>
   (document.querySelector('.message').textContent = message);
+
+// Acknowledge to start the game
+const initRule = function () {
+  document.querySelector('.rules__container').classList.remove('hidden');
+};
+initRule();
+
+btnAcknowledge.addEventListener('click', () => {
+  document.querySelector('.rules__container').classList.add('hidden');
+  document.querySelector('.overlay').classList.add('hidden');
+});
 
 // Check guess
 document.querySelector('.check').addEventListener('click', function () {
